@@ -9,7 +9,10 @@ Com o volume massivo de músicas disponíveis nas plataformas de streaming, ajud
 Bancos de dados relacionais sofrem com problemas de performance ao realizar múltiplos `JOINs` para mapear conexões complexas (ex: "Amigos de usuários que ouviram a música X do gênero Y"). O Neo4j trata as relações como entidades de primeira classe, permitindo consultas de recomendação (filtros colaborativos e baseados em conteúdo) em tempo real e com alta performance.
 
 ## 📊 Modelo do Grafo
-*(Insira aqui a imagem gerada no Arrows.app ou o print do `CALL db.schema.visualization()`)*
+Abaixo está a representação visual do nosso esquema, gerada a partir do banco de dados:
+
+![Modelo do Grafo](./assets/Schema.png)
+
 - **Nós:** `Usuario`, `Musica`, `Artista`, `Genero`
 - **Relacionamentos:** `OUVIU`, `CURTIU`, `SEGUE`, `CANTADA_POR`, `PERTENCE_AO`
 
@@ -21,6 +24,14 @@ Bancos de dados relacionais sofrem com problemas de performance ao realizar múl
 
 ## 🧠 Queries de Negócio e Insights
 
+**1. Filtro Colaborativo:** Recomenda músicas com base em usuários com gostos similares.
+![Resultado do Filtro Colaborativo](./assets/queryA.png)
+
+**2. Recomendação por Conteúdo:** Sugere faixas de artistas que o usuário já segue, mas ainda não escutou.
+![Resultado da Recomendação por Conteúdo](./assets/queryB.png)
+
+**3. Descoberta por Gênero:** Identifica o gênero mais ouvido pelo usuário e sugere hits desse estilo que ele não conhece.
+![Resultado do Top Gênero](./assets/queryC.png)
 
 1. **Filtro Colaborativo:** Recomenda músicas com base em usuários com gostos similares.
 2. **Recomendação por Conteúdo:** Sugere faixas de artistas que o usuário já segue, mas ainda não escutou.
